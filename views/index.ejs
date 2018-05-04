@@ -30,12 +30,19 @@
                 <br><br>
                 <textarea id="text" rows="5" cols="50" type="text" placeholder="Text" name="text"></textarea>
                 <br><br>
+                <input id="date" type="hidden" name="date">
                 <button type="submit">Add Post</button>
             </form>
             <br>
+
+
+            
         </section>
         <section>
             <h2>Old posts</h2>
+            <a href="/default">Sort by Id</a> &nbsp; 
+            <a href="/title">Sort by Title</a>  &nbsp;
+            <a href="/date">Sort by Date</a>&nbsp;
                 <ul>
                     <% for(var i=0; i<posts.length; i++) {%>
                         <li>
@@ -52,6 +59,28 @@
                 </ul>
         </section>
     </div>
+
+
+
+    <script>
+            n = new Date(); // get current date
+// formatting the date
+h = n.getHours();
+M = n.getMinutes();
+y = n.getFullYear();
+// getMonth() counts January as 0 so we need +1 
+m = n.getMonth() + 1;
+d = n.getDate();
+//check if it's AM or PM
+if (h < 12){
+document.getElementById("date").value = h + ":" + M + " AM " + m + "/" + d + "/" + y;
+}
+else {
+    document.getElementById("date").value = h + ":" + M + " PM " + m + "/" + d + "/" + y;
+}
+</script>
+
+
 </body>
 
 </html>
