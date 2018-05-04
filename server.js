@@ -129,3 +129,10 @@ app.all('/delete/:id', (req, res) => {
         res.redirect('/')
     })
 })
+
+app.all('/read/:id', (req, res) => {
+    id = req.params.id
+    db.collection('posts').find({ _id: ObjectId(id) }).toArray(function (err, results) {
+        res.render('read.ejs', { posts: results })
+    })
+})

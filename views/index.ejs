@@ -50,8 +50,15 @@
                                 <%= posts[i].title %>
                             </h3>
                             <p>
-                                <span><%= posts[i].text %></span>
-                            </p>
+                                    <%
+                                        var text = posts[i].text
+                                        text = text.split(" ")
+                                        text = text.slice(0, 3)
+                                        text = text.join(" ")
+                                    %>
+                                     <%=text%> 
+                                        <a href="/read/<%= posts[i]._id %>"> read more </a>
+                                </p>
                             <a href = "/edit/<%= posts[i]._id %>">Edit</a>
                             <a href = "/delete/<%= posts[i]._id %>">Delete</a>
                         </li>
